@@ -1,0 +1,102 @@
+<div class="container-fluid">
+	<div style="padding-bottom: 10px;margin:14px;" class="clearfix shadow-pro p-2">
+		<a href="<?= base_url("app/dashboard/index"); ?>" class="btn btn-outline-secondary btn-mini pull-left">
+			<i class="fas fa-arrow-circle-left"></i> Go Back
+		</a>
+        <?php
+        if (is_super_admin() || is_content_admin()){
+            ?>
+            <button onclick="show_large_modal('<?php echo site_url('app/modal/popup/get/'); ?>/?page_name=blog/add', '<?= get_phrase('add_blog'); ?>')"
+                    class="btn btn-primary btn-mini float-right">
+                <small><i class="fas fa-plus"></i></small> Add <?= $page_title ?? '' ?>
+            </button>
+            <?php
+        }
+        ?>
+
+	</div>
+	<div class="card card-primary row mt-3 shadow-sm" style="margin:14px;">
+		<div class="card-header">
+			<h3 class="card-title"><?= $page_title ?? '' ?></h3>
+		</div>
+		<!-- /.card-header -->
+		<div class="card-body">
+			<form action="" method="get">
+				<div class="row mt-2">
+
+					<div class="col-4 form-group p-2">
+						<button type="submit" class="btn btn-secondary">
+							<small><i class="bi bi-funnel-fill"></i></small> Filter
+						</button>
+					</div>
+
+				</div>
+			</form>
+			<table id="example1" class="table table-bordered table-striped">
+				<thead>
+				<tr>
+					<th>#</th>
+					<th>Title</th>
+					<th>Author Name</th>
+					<!--<th>Short Description</th>-->
+					<!--<th>Description</th>-->
+					<th>Meta Title</th>
+					<th>Meta Description</th>
+					<th>Image</th>
+
+                    <?php
+                    if (is_super_admin() || is_content_admin()){
+                        ?>
+                        <th style="width: 55px;">Action</th>
+                        <?php
+                    }
+                    ?>
+
+				</tr>
+				</thead>
+				<tbody>
+				<?php
+				if (isset($list_items)) {
+					foreach ($list_items as $key => $item) {
+						?>
+						<tr>
+							<td><?= $key + 1 ?></td>
+							<td><?= $item['title']?></td>
+							<td><?= $item['author_name']?></td>
+							<!--<td><?= $item['short_description']?></td>-->
+							<!--<td><?= $item['description']?></td>-->
+							<td><?= $item['meta_title']?></td>
+							<td><?= $item['meta_description']?></td>
+							<td><a href="<?= base_url($item['image'])?>" target="_blank"><img src="<?= base_url($item['image'])?>" style="width:70px;height:auto;"></a></td>
+
+                            <?php
+                            if (is_super_admin() || is_content_admin()){
+                                ?>
+                                <td>
+                                    <button onclick="show_large_modal('<?= site_url('app/modal/popup/get/'.$item['id'].'/?page_name=blog/edit'); ?>', '<?php echo get_phrase('update_blog'); ?>')"
+                                            class="btn btn-info btn-sm">
+                                        <small><i class="fas fa-pencil-alt"></i></small>
+                                    </button>
+                                    <button onclick="confirm_modal('<?=base_url("app/blog/delete/{$item['id']}/");?>')"
+                                            class="btn btn-outline-danger btn-sm ">
+                                        <small><i class="fas fa-trash"></i> </small>
+                                    </button>
+                                </td>
+                                <?php
+                            }
+                            ?>
+
+						</tr>
+						<?php
+					}
+				}
+				?>
+
+				</tbody>
+
+			</table>
+		</div>
+		<!-- /.card-body -->
+	</div>
+</div>
+

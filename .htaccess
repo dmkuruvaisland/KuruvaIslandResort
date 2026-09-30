@@ -1,0 +1,200 @@
+# RewriteEngine On
+# RewriteBase /
+
+Options +FollowSymLinks
+RewriteEngine On
+RewriteBase /
+
+# Redirect non-www to www HTTPS
+RewriteCond %{HTTP_HOST} ^kuruvaislandresort\.com$ [NC]
+RewriteRule ^(.*)$ https://www.kuruvaislandresort.com/$1 [R=301,L]
+
+# Force HTTPS for www
+RewriteCond %{HTTP_HOST} ^www\.kuruvaislandresort\.com$ [NC]
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://www.kuruvaislandresort.com/$1 [R=301,L]
+
+# Redirect all requests to your main PHP file (e.g., index.php)
+
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^ index.php [L]
+
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+# # Redirect to HTTPS if not already
+# RewriteCond %{HTTPS} !=on
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE]
+
+# # Redirect /resort_in_kabini and /resort_near_kabini to /resort-in-kabini
+# RewriteRule ^resort_in_kabini$ /resort-in-kabini [R=301,L]
+# RewriteRule ^resort_near_kabini$ /resort-in-kabini [R=301,L]
+
+# # Exclude certain directories and files from rewriting
+# RewriteCond $1 !^(index\.php|(.*)\.swf|forums|images|css|downloads|jquery|js|robots\.txt|favicon\.ico)
+
+# # Check if the requested file or directory doesn't exist
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+
+# # Rewrite to index.php
+# RewriteRule ^(.*)$ index.php/$1 [L]
+
+# Internal rewrite (proxy) for blog details URL
+# RewriteRule ^blog_details/([^/]+)?$ blog-details.php?perma=$1 [L,P]
+
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteCond %{REQUEST_FILENAME}.php -f
+# RewriteRule ^([^/]+)/?$ $1.php [L]
+
+RewriteEngine On
+
+# Redirect requests from /example.php to /example
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.+)$ $1.php [L]
+
+# Redirect requests from /example/ to /example
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.+)/$ $1.php [L]
+
+# Redirect requests to remove .php extension
+RewriteCond %{THE_REQUEST} ^[A-Z]+\s.+\.php\sHTTP/.+
+RewriteRule ^(.+)\.php$ /$1 [R=301,L]
+
+
+RewriteRule ^index.php\.php$ / [R=301,L]
+
+
+RewriteRule ^nearbydestination/$ https://kuruvaislandresort.com/place-to-visit [R=301,L] 
+RewriteRule ^best-ayurveda-spa-resort-in-wayanad/$ https://www.kuruvaislandresort.com/ayurveda-spa-resort-wayanad [R=301,L] 
+RewriteRule ^packages/blogs$ https://www.kuruvaislandresort.com/blogs [R=301,L]
+# RewriteRule ^rooms/index.php$ https://www.kuruvaislandresort.com/ [R=301,L]
+# RewriteRule ^rooms/index\.php$ https://www.kuruvaislandresort.com/ [R=301,L]
+RewriteRule ^rooms/index\.php$ https://www.kuruvaislandresort.com/ [R=301,NC,L]
+RewriteRule ^resorts-near-muthangha.php$ https://www.kuruvaislandresort.com/blog-details/resorts-near-Muthangha [R=301,L]
+RewriteRule ^blog_details/Adventure-Places-Wayanad$ https://www.kuruvaislandresort.com/blog-details/Adventure-Places-Wayanad [R=301,L]
+RewriteRule ^blog_details/best-rooms-Wayanad$ https://www.kuruvaislandresort.com/blog-details/best-rooms-Wayanad [R=301,L]
+RewriteRule ^blog_details/resorts-Wayanad-vacation$ https://www.kuruvaislandresort.com/blog-details/resorts-Wayanad-vacation [R=301,L]
+RewriteRule ^blog_details/resorts-near-thirunelly-brahmagiri$ https://www.kuruvaislandresort.com/blog-details/resorts-near-thirunelly-brahmagiri [R=301,L]
+RewriteRule ^rooms/index$ https://kuruvaislandresort.com/ [R=301,L]
+RewriteRule ^best-ayurvedic-treatment-kerala.php$ https://www.kuruvaislandresort.com/ayurvedic-treatment-kerala [R=301,L]
+RewriteRule ^resorts-kabini.php$ https://kuruvaislandresort.com/kabini-wildlife-sanctuary [R=301,L]
+RewriteRule ^resorts-kuruvadweep.php$ https://kuruvaislandresort.com/resorts-in-kuruvadweep [R=301,L]
+RewriteRule ^best-ayurvedic-treatment-kerala$ https://www.kuruvaislandresort.com/ayurvedic-treatment-kerala [R=301,L]
+
+# RewriteRule ^rooms/index\.php$ https://www.kuruvaislandresort.com/ [R=301,L]
+
+# RewriteRule ^kuruvaislandresort.com/blogs\.php$ https://www.kuruvaislandresort.com/blogs [R=301,L]
+
+# RewriteRule ^rooms/index\.php$ https://www.kuruvaislandresort.com/ [L,R=301]
+# RewriteRule ^https://www.kuruvaislandresort.com/resorts-near-muthangha\.php$ https://www.kuruvaislandresort.com/blog-details/resorts-near-Muthangha [L,R=301]
+# RewriteRule ^blog_details/Adventure-Places-Wayanad$ https://www.kuruvaislandresort.com/blog-details/Adventure-Places-Wayanad [L,R=301]
+
+
+# RewriteRule ^blog-details/resorts-near-Muthangha$ https://www.kuruvaislandresort.com/blog-details/resorts-near-Muthangha[L,R=301]
+
+
+
+# RewriteRule ^blog_details/best-rooms-Wayanad$ https://www.kuruvaislandresort.com/blog-details/best-rooms-Wayanad [L,R=301]
+# RewriteRule ^blog_details/resorts-Wayanad-vacation$ https://www.kuruvaislandresort.com/blog-details/resorts-Wayanad-vacation [L,R=301]
+# RewriteRule ^best-ayurvedic-treatment-kerala\.php$ https://www.kuruvaislandresort.com/ayurvedic-treatment-kerala [L,R=301]
+# RewriteRule ^best-ayurveda-spa-resort-in-wayanad$ https://www.kuruvaislandresort.com/ayurveda-spa-resort-wayanad [L,R=301]
+# RewriteRule ^blog_details/resorts-near-thirunelly-brahmagiri$ https://www.kuruvaislandresort.com/blog-details/resorts-near-thirunelly-brahmagiri [L,R=301]
+
+
+# RewriteRule ^blog_details/Luxury-resorts-in-Wayanad$ https://www.kuruvaislandresort.com/blog_details/Luxury-resorts-in-Wayanad [L,R=301]
+
+
+# RewriteRule ^blog_details/jungle-resorts-in-Wayanadp$ https://www.kuruvaislandresort.com/blog-details/jungle-resorts-in-Wayanad [L,R=301]
+
+# RewriteRule ^blog_details/best-resort-in-Wayanad$ https://www.kuruvaislandresort.com/blog-details/best-resort-in-Wayanad [L,R=301]
+
+# RewriteRule ^blog_details/Best-resort-in-Kerala$ https://www.kuruvaislandresort.com/blog-details/Best-resort-in-Kerala [L,R=301]
+
+# RewriteRule ^blog_details/Travelling-Spots-near-Wayanad-District$ https://www.kuruvaislandresort.com/blog-details/Travelling-Spots-near-Wayanad-District [L,R=301]
+
+# RewriteRule ^best-honeymoon-resorts-in-wayanadphp$ honeymoon-resorts-wayanad [L,R=301]
+
+# RewriteRule ^twin-bedroom-Suite-resort-wayanad$ twin-bedroom-suite-resort-wayanad [L,R=301]
+
+# RewriteRule ^blog_details/Pet-friendly-resort-in-Wayanad$ https://www.kuruvaislandresort.com/blog-details/Pet-friendly-resort-in-Wayanad [L,R=301]
+
+# RewriteRule ^blog_details/wayanad-heavenly-town-gods-own-abode$ https://www.kuruvaislandresort.com/blog-details/wayanad-heavenly-town-gods-own-abode [L,R=301]
+
+# RewriteRule ^blog_details/best-resorts-in-Wayanad-for-family$ https://www.kuruvaislandresort.com/blog-details/best-resorts-in-Wayanad-for-family [L,R=301]
+
+
+
+
+
+
+
+
+
+# RewriteRule ^best-resorts-in-wayanad-for-family\.php$ resorts-wayanad-for-family.php [R=301,L]
+RewriteRule ^best-Jacuzzi-rooms-in-wayanad\.php$ resorts-wayanad-with-jacuzzi.php [R=301,L]
+RewriteRule ^best-resorts-in-wayanad-with-private-pool\.php$ private-pool-villa-wayanad.php [R=301,L]
+RewriteRule ^kabini-nagarhole-jungle-safari\.php$ jungle-safari-kabini-nagarhole.php [R=301,L]
+RewriteRule ^honeymoon-holiday-resort-wayanad\.php$ honeymoon-packages-kerala.php [R=301,L]
+RewriteRule ^best-ayurvedic-packages-in-wayanad\.php$ ayurvedic-treatment-kerala.php [R=301,L]
+RewriteRule ^honeymoon-resorts-in-wayanad-with-private-pool\.php$ honeymoon-resorts-wayanad-with-private-pool.php [R=301,L]
+RewriteRule ^premium-family-suite-resort-wayanad\.php$ family-resorts-wayanad.php [R=301,L]
+RewriteRule ^best-honeymoon-resorts-in-wayanad\.php$ honeymoon-resorts-wayanad.php [R=301,L]
+RewriteRule ^twin-bedroom-Suite-resort-wayanad\.php$ twin-bedroom-suite-resort-wayanad.php [R=301,L]
+RewriteRule ^studio-room-with-tub-in-wayanad\.php$ studio-room-with-tub-wayanad.php [R=301,L]
+RewriteRule ^suite-room-with-tub-in-wayanad\.php$ suite-room-with-tub-wayanad.php [R=301,L]
+RewriteRule ^best-ayurvedic-treatment-kerala\.php$ ayurvedic-treatment-kerala.php [R=301,L]
+RewriteRule ^best-ayurveda-spa-resort-in-wayanad\.php$ ayurveda-spa-resort-wayanad.php [R=301,L]
+# RewriteRule ^swimming_pool\.php$ resort-in-wayanad-with-pool.php [R=301,L]
+RewriteRule ^events-in-wayanad\.php$ events-wayanad.php [R=301,L]
+RewriteRule ^birthday-party-in-Wayanad\.php$ birthday-party-wayanad.php [R=301,L]
+# RewriteRule ^resorts-in-kuruvadweep\.php$ resorts-kuruvadweep.php [R=301,L]
+RewriteRule ^resorts-in-kabini\.php$ resort-in-kabini.php [R=301,L]
+RewriteRule ^privacypolicy\.php$ privacy-policy.php [R=301,L]
+RewriteRule ^privacypolicy\.php$ privacy-policy.php [R=301,L]
+
+RewriteRule ^contact$ contact.php [R=301,L]
+RewriteRule ^rooms/private-pool-villa-wayanad$ private-pool-villa-wayanad.php [R=301,L]
+RewriteRule ^resort_near_nagerhole$ jungle-safari-kabini-nagarhole.php [R=301,L]
+RewriteRule ^videogallery$ videogallery.php [R=301,L]
+
+RewriteRule ^index$ / [R=301,L]
+
+# RewriteRule ^best-resorts-in-wayanad-for-family$ resorts-wayanad-for-family.php [R=301,L]
+RewriteRule ^best-Jacuzzi-rooms-in-wayanad$ resorts-wayanad-with-jacuzzi [R=301,L]
+RewriteRule ^best-resorts-in-wayanad-with-private-pool$ private-pool-villa-wayanad [R=301,L]
+RewriteRule ^kabini-nagarhole-jungle-safari$ jungle-safari-kabini-nagarhole [R=301,L]
+RewriteRule ^honeymoon-holiday-resort-wayanad$ honeymoon-packages-kerala [R=301,L]
+RewriteRule ^best-ayurvedic-packages-in-wayanad$ ayurvedic-treatment-kerala [R=301,L]
+RewriteRule ^honeymoon-resorts-in-wayanad-with-private-pool$ honeymoon-resorts-wayanad-with-private-pool [R=301,L]
+RewriteRule ^premium-family-suite-resort-wayanad$ family-resorts-wayanad [R=301,L]
+RewriteRule ^best-honeymoon-resorts-in-wayanad$ honeymoon-resorts-wayanad [R=301,L]
+RewriteRule ^twin-bedroom-Suite-resort-wayanad$ twin-bedroom-suite-resort-wayanad [R=301,L]
+RewriteRule ^studio-room-with-tub-in-wayanad$ studio-room-with-tub-wayanad [R=301,L]
+RewriteRule ^suite-room-with-tub-in-wayanad$ suite-room-with-tub-wayanad [R=301,L]
+RewriteRule ^best-ayurvedic-treatment-kerala$ ayurvedic-treatment-kerala [R=301,L]
+RewriteRule ^best-ayurveda-spa-resort-in-wayanad$ ayurveda-spa-resort-wayanad [R=301,L]
+# RewriteRule ^swimming_pool$ resort-in-wayanad-with-pool.php [R=301,L]
+RewriteRule ^events-in-wayanad$ events-wayanad [R=301,L]
+RewriteRule ^birthday-party-in-Wayanad$ birthday-party-wayanad [R=301,L]
+# RewriteRule ^resorts-in-kuruvadweep$ resorts-kuruvadweep [R=301,L]
+RewriteRule ^resorts-in-kabini$ resort-in-kabini [R=301,L]
+RewriteRule ^privacypolicy$ privacy-policy [R=301,L]
+
+RewriteRule ^contact$ contact.php [R=301,L]
+RewriteRule ^rooms/private-pool-villa-wayanad$ private-pool-villa-wayanad [R=301,L]
+RewriteRule ^resort_near_nagerhole$ jungle-safari-kabini-nagarhole [R=301,L]
+RewriteRule ^videogallery$ videogallery [R=301,L]
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php80” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php80 .php .php8 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit

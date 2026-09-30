@@ -1,0 +1,69 @@
+# ------------------------------------------------------------------------------
+# 1. Backups, Archives & Old Loose Copies
+# ------------------------------------------------------------------------------
+*.zip
+*.tar
+*.gz
+kuruvaislandresort.com.zip
+htaccess_backup
+sitemap.xml_old
+photo_gallery.php
+* 23-9.php
+* 2.php
+* copy.php
+* - Copy.php
+*-old.php
+kuruva/
+
+# ------------------------------------------------------------------------------
+# 2. Database Dumps (Sensitive production data)
+# ------------------------------------------------------------------------------
+DATAB/
+*.sql
+
+# ------------------------------------------------------------------------------
+# 3. Database & API Secrets (Kept on server, never tracked in Git)
+# ------------------------------------------------------------------------------
+include/db_config.php
+admin/application/config/database.php
+blog/application/config/database.php
+admin/razorpay/config.php
+
+# ------------------------------------------------------------------------------
+# 4. CodeIgniter Cache & Logs
+# ------------------------------------------------------------------------------
+admin/application/cache/*
+!admin/application/cache/index.html
+admin/application/logs/*
+!admin/application/logs/index.html
+blog/application/cache/*
+!blog/application/cache/index.html
+blog/application/logs/*
+!blog/application/logs/index.html
+
+# ------------------------------------------------------------------------------
+# 5. User Uploads / Runtime Media (Preserved on Hostinger, excluded from Git)
+# ------------------------------------------------------------------------------
+admin/uploads/*
+!admin/uploads/index.html
+blog/uploads/*
+!blog/uploads/index.html
+
+# ------------------------------------------------------------------------------
+# 6. Heavy Media Files (>50MB, preserved on Hostinger, avoids GitHub limits)
+# ------------------------------------------------------------------------------
+*.mp4
+pdf/Spa.pdf
+
+# ------------------------------------------------------------------------------
+# 7. Local Development Server Helpers
+# ------------------------------------------------------------------------------
+router.php
+
+# ------------------------------------------------------------------------------
+# 8. Operating System & Editor Files
+# ------------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

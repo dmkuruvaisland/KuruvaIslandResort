@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #fef0ea;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    --font-color:#b46537;
+}
+section{
+    padding: 60px 0;
+}
+.package{
+    padding: 50px 0;
+}
+p{
+    font-size: 16px;
+    line-height: 2;
+}
+a{
+    text-decoration: none;
+}
+h3{
+    font-size: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: var(--font-color);
+}
+@media (min-width:360px) and (max-width:767px){
+   h3{
+       font-size: 20px;
+   }
+}
+.main-btn{
+    display: inline-block;
+    /* border: 1px solid var(--bg-white); */
+    color: #fff;
+    padding: 12px 21.92px;
+    font-size: 18px;
+    background: #b46537;
+    text-transform: capitalize;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+.main-btn:focus{
+    outline: none;
+    box-shadow: none;
+}
+.main-btn:hover{
+    background: #fff;
+    border: 1px solid #b46537;
+    color: var(--font-color);
+}
+
+
+
+
+.ayurveda-spa{
+    /* background-image: url(/images/ayurveda-bg.jpg); */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+}
+
+@media (min-width:360px) and (max-width:767px){
+    .ayurveda-spa{
+        
+        background-image: url(/images/mobile-bg.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100vh;
+        width: 100%;
+    }
+}
+
+.ayurveda-spa .main-text{
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%);
+    position: absolute;
+    text-align: center;
+}
+.ayurveda-spa .main-text h1{
+    font-size: 80px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--font-color);
+}
+
+.ayurveda-spa .main-text h6{
+    font-size: 20px;
+    text-transform: uppercase;
+    color: var(--font-color);
+    margin-bottom: 20px;
+}
+
+@media (min-width:768px) and (max-width:1023px){
+    .ayurveda-spa .main-text{
+        left: 40%;
+        top: 50%;
+        transform: translate(-30% , -50%);
+        position: absolute;
+        text-align: center;
+    }
+    .ayurveda-spa .main-text h1{
+        font-size: 50px;
+    }
+    .ayurveda-spa .main-text h6{
+        font-size: 20px !important;
+    }
+
+}
+
+@media (min-width:360px) and (max-width:767px){
+    .ayurveda-spa .main-text{
+        left: 30%;
+        top: 50%;
+        transform: translate(-20% , -50%);
+        position: absolute;
+        text-align: center;
+    }
+    .ayurveda-spa .main-text h1{
+        font-size: 40px;
+    }
+    .ayurveda-spa .main-text h6{
+        font-size: 20px !important;
+    }
+
+}
+
+
+.category-img img{
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+.category-details{
+    background-image: url(/images/Leaf.png);
+    background-size: cover;
+    background-position: center;
+    
+}
+.package-details h6{
+    font-size: 25px;
+    font-weight: 600;
+}
+.package-details ul li{
+    line-height: 2;
+    /* list-style: none; */
+    padding: 0px !important;
+    margin-left: -10px !important;
+}
+
+.package-details ul li img{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
